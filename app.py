@@ -5,7 +5,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
 
 im = Image.open("data/favicon.ico")
-st.set_page_config(page_title="Naive app",page_icon=im,layout='wide')
+st.set_page_config(page_title="Naive app",page_icon=im,layout='wide',initial_sidebar_state="expanded")
 
 from model.naive_tutorial import *
 
