@@ -1,12 +1,10 @@
 # Naive Bayes Classifier
-
-from turtle import right
 import streamlit as st
 from PIL import Image
 from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
 
-im = Image.open("data/favicon.ico")
+im = Image.open("data/  favicon.ico")
 st.set_page_config(page_title="Naive app",page_icon=im,layout='wide')
 
 from model.naive_tutorial import *
