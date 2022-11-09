@@ -93,8 +93,8 @@ def add_bg_from_url():
 #add_bg_from_url() 
 
 
-with open('style.css') as f:
-    st.markdown(f'<style>{f.read()}</style>',unsafe_allow_html=True)
+# with open('style.css') as f:
+#     st.markdown(f'<style>{f.read()}</style>',unsafe_allow_html=True)
 
 
 if __name__ == "__main__":
