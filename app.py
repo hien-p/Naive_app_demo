@@ -241,7 +241,7 @@ if __name__ == "__main__":
         
     
     # Applications of Naïve Bayes Classifier
-    st.write("### Applications of Naïve Bayes Classifier")
+    st.write("### Applications of Naive Bayes Classifier")
     st.markdown("""
                 * It is used for Credit Scoring.
                 * It is used in medical data classification.
@@ -253,53 +253,79 @@ if __name__ == "__main__":
     with center:    
         st.image(image, caption='spam email example', width=600)
         
-        
+    
+    st.markdown("---")
+    
     st.write("## Types of Naive Bayes Model:")
-    st.write("### Gaussian Naive Bayes")
-    st.markdown("""
-                * It is a straightforward algorithm used when the attributes are continuous. 
-                * The attributes present in the data should follow the rule of Gaussian distribution or normal distribution.
-                * It remarkably quickens the search, and under lenient conditions, the error will be two times greater than Optimal Naive Bayess                
-                """)
     
-    
-    st.write("Gaussian Naive Bayes is useful when working with continuous values which probabilities can be modeled using a Gaussian distribution:")
-    image = Image.open('data/Gaussian.png')
-    
-    _, center, _ = st.columns([1,2,1])
-    
-    with center: 
-        st.image(image, caption='Guassian', width=600)
-        
-        
-    st.markdown("""
-                The conditional probabilities P(xi|y) are also Gaussian distributed and, therefore, 
-                it’s necessary to estimate mean and variance of each of them using the maximum likelihood approach. 
-                This quite easy, in fact, considering the property of a Gaussian, we get:
-
-                
-                """)
-    
-    image = Image.open("data/conditinal.png")
-    
-    _, center, _ = st.columns([1,2,1])
+    _, center, _ = st.columns([1,5,1])
     
     with center:
-        st.image(image, caption=' the property of a Gaussian', width=600)
-        
-    st.markdown("""
-                Where the k index refers to the samples in our dataset and P(xi|y) is a Gaussian itself. We get mean and variance for each Gaussian associated to P(xi|y) and the model is hence trained.
+        image = Image.open('data/types.png') 
+        st.image(image, caption='Types of Naive Bayes', width=800)    
+    
+    
+    
+    
+    st.write("### Optimal Naive Bayes")
+    left, right = st.columns([2,2])
+    
+    with left:
+        st.markdown("""
+                    * Optimal Naive Bayes selects the class that has the greatest posterior probability of happenings.
+                    * As per the name, it is optimal. But it will go through all the possibilities, which is very slow and time-consuming.
+                    """)
+    with right: 
+        image = Image.open('data/MPEE.png') 
+        st.image(image, caption='MAP', width=500)    
+    
+    
+    
+    st.write("### Gaussian Naive Bayes")
+    left, right = st.columns([2,2])
+    with left:
+        st.markdown("""
+                * It is a s algorithm used when the features are continuous. 
+                * The attributes present in the data should follow the rule of Gaussian distribution or normal distribution.
+                * It remarkably quickens the search and greater than Optimal Naive Bayes                
                 """)
-    st.markdown("As an example:  we compare **Gaussian Naive Bayes** with **logistic regression** using the **ROC curves**. The dataset has **300 samples** with two features. Each sample belongs to a single class")
-    st.code("""
-            from sklearn.datasets import make_classification
-            >>> nb_samples = 300
-            >>> X, Y = make_classification(n_samples=nb_samples, n_features=2, n_informative=2, n_redundant=0)
-            """)
+    
+    with right: 
+        image = Image.open('data/NormalD.png') 
+        st.image(image, caption='Example of a Normal Distribution', width=500)
+        
     
     
-    st.markdown("Naive Bayes performances are slightly better than logistic regression, however, the two classifiers have similar accuracy and Area Under the Curve (AUC).")
-    st.write(" It’s interesting to compare the performances of Gaussian and multinomial naive Bayes with the MNIST digit dataset")
+    st.write("### Multinomial Naive Bayes")
+    left, right = st.columns([2,2])
+    with left:
+        st.markdown("""
+                * Multinomial Naive Bayes is used on documentation classification issues.
+                * The features needed for this type are the frequency of the words converted from the document.
+                """)
+    
+    with right: 
+        image = Image.open('data/MNB.png') 
+        st.image(image, caption='Equation', width=500)
+    
+    
+    
+    st.write("### Bernoulli Naive Bayes")
+    left, right = st.columns([2,2])
+    
+    with left:
+        st.markdown("""
+                    * Bernoulli Naive Bayes is an algorithm that is useful for data that has binary or boolean attributes. 
+                    * The attributes will have a value of yes or no, useful or not…""")
+    
+    with right: 
+        image = Image.open('data/Beunoli.png') 
+        st.image(image, caption='Equation', width=500)
+    
+
+    st.markdown("---")
+    st.write("### Example")    
+    st.write(" It's interesting to compare the performances of Gaussian and multinomial naive Bayes with the MNIST digit dataset")
     left, right = st.columns([3,2])
     
     with left:
@@ -343,3 +369,4 @@ print(cross_val_score(mnb, digits.data, digits.target, scoring='accuracy', cv=10
             mnb = MultinomialNB()
             res = cross_val_score_model(mnb, X, y)
             st.write(res)
+    
