@@ -179,14 +179,26 @@ if __name__ == "__main__":
     with center: 
         image = Image.open('data/pro_x.png')
         st.image(image, caption='Bayesian equality', width=600)
-        
-        
+    st.markdown("""
+    In the Naive Bayes model, two assumptions are made:
+    The features included in the model are independent of each other. That is, changing the value of one feature does not affect the remaining features.
+    The features introduced into the model have an equal effect on the target output.  
+                """)
+    
+    st.write("The objective result y for P(y|X) to be maximized becomes:")
+    _,center, _ = st.columns([1, 3, 1])
+    with center: 
+        image = Image.open('data/argmax.png')
+        st.image(image, caption='equaliton', width=600)
+    
+    
+    st.markdown("---")    
     # Example
     st.write("## Example")
     st.write("Consider a simple dataset about an employee's lateness to work. The data set is presented in tabular form below:")
     left, right = st.columns([2, 2])
     with left:
-        st.write("Suppose, to predict for a day X=(Muộn, Xấu, Mưa), it is necessary to calculate:")
+        st.write("Suppose, to predict for a day **X=(Muộn, Xấu, Mưa)**, it is necessary to calculate:")
         st.write("By making a frequency table for each feature against the objective, P(X|y) can be calculated.")
         
         st.markdown(f"""
@@ -213,7 +225,7 @@ if __name__ == "__main__":
                     P(Không Muộn/X) = (P(X/(Không Muộn))*P(Không Muộn))/(P(X))<br>=(0*5/10)/(3/125)=0 (0%)<br>
                     </p>
                     """,unsafe_allow_html=True)
-        st.markdown(f""" From the results, we compare the percentages of the 2 attributes and get the largest result
+        st.markdown(f""" From the results, we compare the percentages of the 2 attributes and get the largest result<br>
                     So the So the probability of being Late is 100%.
                     """,unsafe_allow_html=True)
          
