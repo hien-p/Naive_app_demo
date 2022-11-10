@@ -372,12 +372,12 @@ print(cross_val_score(mnb, digits.data, digits.target, scoring='accuracy', cv=10
             with st.expander('target description'):
                 st.dataframe(y)
             
-            st.write("Result of multinomial model".upper())
+            st.write("Result of Gaussian model".upper())
             gnb = GaussianNB()
             res = cross_val_score_model(gnb, X, y)
             st.write(res)
             
-            st.write("result of Gaussian model".upper())
+            st.write("result of multinomial model".upper())
             mnb = MultinomialNB()
             res = cross_val_score_model(mnb, X, y)
             st.write(res)
